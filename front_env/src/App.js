@@ -8,6 +8,7 @@ import Header from './components/Header.js';
 import ReceiverPage from "./pages/ReceiverPage"
 import ErrorPage from './pages/ErrorPage.js';
 import ContactPage from './pages/ContactPage.js';
+import SecurePage from './pages/SecurePage.js';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/receiver" element={<ReceiverPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/secrets/*" element={<ReceiverPage />} />
+                <Route path="/security" element={<SecurePage/>}/>
                 <Route path="/*" element={<ErrorPage />} />
 
               </Routes>

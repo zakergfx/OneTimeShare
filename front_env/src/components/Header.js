@@ -16,7 +16,6 @@ function Header() {
         { "location": "/", "text": "Create a secret" },
         { "location": "/security", "text": "How is it secure ?" },
         { "location": "/contact", "text": "Contact" },
-        { "location": "/about", "text": "About" }
     ]
 
     function handleMenuClick() {
