@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /login
+Disallow: /register
+Disallow: /recoverpwd
+Disallow: /mainpage
+Disallow: /logout
+Disallow: /main
+Disallow: /contact

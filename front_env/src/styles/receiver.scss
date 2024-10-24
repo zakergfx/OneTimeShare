@@ -1,0 +1,56 @@
+@import "common.scss";
+
+.ReceiverPage {
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+
+    .Content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        margin-right: 1em;
+        margin-left: 1em;
+
+        .CopySection { 
+            position: relative;
+
+            textarea{
+            width: 100%;
+            height: 10em;
+
+            }
+            width: 100%;
+
+            .Icon {
+                color: $thirdColor;
+                position: absolute;
+                right: 0.5em;
+                top: 0.5em;
+
+                cursor: pointer;
+            }
+        }
+
+        button {
+            width: 100%;
+            margin-top: 0.2em;
+            margin-bottom: 0.2em;
+
+            &#big{
+                font-size: 2em;
+            }
+        }
+
+
+
+    }
+
+}

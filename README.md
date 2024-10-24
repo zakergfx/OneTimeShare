@@ -1,1 +1,2 @@
-# secureshare
+# SecureShare
+### Share your secret securely

@@ -1,0 +1,39 @@
+@import "common.scss";
+
+.ContactPage {
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+
+    .Content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        margin-right: 1em;
+        margin-left: 1em;
+
+        textarea{
+            margin-top: 0.5em;
+            width: 100%;
+            height: 10em;
+        }
+
+        p{
+            margin: 0;
+        }
+
+        button{
+            width: 100%;
+            margin-top: 0.5em;
+        }
+
+    }
+
+}
