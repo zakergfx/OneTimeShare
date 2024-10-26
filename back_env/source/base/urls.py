@@ -8,7 +8,7 @@ urlpatterns = [
 
     path("sendmail", views.sendMail),
 
-    path("testing/", views.testing),
+    # path("testing/", views.testing),
 
    
 ]

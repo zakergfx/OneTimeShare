@@ -1,0 +1,1939 @@
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:23:39
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7f124d2e49d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:23:39,502: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:23:39,522: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:23:41,530: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:23:45,551: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:23:45,552: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:23:45,554: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:23:46,568: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:23:46,578: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:23:46,580: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:24:10,027: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:24:10,028: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:24:10,029: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:24:10,032: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:24:12,035: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:24:12
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7fbd9923d9d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:24:12,646: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:24:12,655: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:24:14,658: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:24:16,052: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:24:16,052: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:24:16,059: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:24:17,098: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:24:18,666: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:24:18,667: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:24:18,670: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:24:19,685: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:24:19,690: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:24:19,697: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:25:10,954: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:25:10,954: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:25:10,953: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:25:10,955: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:25:10,955: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:25:10,956: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:25:10,956: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:25:10,957: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:25:12
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7f136a7d99d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:25:12,964: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:25:12,965: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:25:13,073: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:25:13,075: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:25:15,078: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:25:16,978: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:25:16,979: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:25:16,979: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:25:16,980: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:25:17,006: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:25:17,008: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:25:18,032: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:25:18,034: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:25:19,086: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:25:19,087: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:25:19,091: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:25:20,107: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:25:20,115: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:25:20,117: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:27:04,203: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:27:04,204: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:27:04,205: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:04,207: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:27:04,208: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:27:04,208: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:04,208: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: Server unexpectedly closed connection.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:27:04,206: ERROR/MainProcess] Error cleaning up after event loop: RecoverableConnectionError(None, 'Socket was disconnected', None, '')
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 102, in asynloop
+    hub.reset()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 116, in reset
+    self.close()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 275, in close
+    item()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 228, in _read
+    raise RecoverableConnectionError('Socket was disconnected')
+amqp.exceptions.RecoverableConnectionError: Socket was disconnected
+[2024-10-26 12:27:04,209: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:27:04,209: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:27:04,210: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:27:04,210: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:04,211: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:27:06,216: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:27:06,218: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:27:06,219: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:27:06
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7f835aaa59d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:27:06,445: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:06,448: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:27:08,451: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:27:10,231: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:27:10,231: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:10,233: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:27:10,233: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:10,234: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:27:10,235: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:10,257: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:27:10,257: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:27:10,258: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:27:11,286: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:27:11,287: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:27:11,291: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:27:12,459: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:27:12,459: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:27:12,462: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:27:13,491: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:27:13,501: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:27:13,502: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:28:14,727: ERROR/MainProcess] Error cleaning up after event loop: RecoverableConnectionError(None, 'Socket was disconnected', None, '')
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 102, in asynloop
+    hub.reset()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 116, in reset
+    self.close()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 275, in close
+    item()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 228, in _read
+    raise RecoverableConnectionError('Socket was disconnected')
+amqp.exceptions.RecoverableConnectionError: Socket was disconnected
+[2024-10-26 12:28:14,728: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:28:14,728: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:28:14,729: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:28:14,731: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:28:14,732: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:28:14,732: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:28:14,733: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:28:14,731: ERROR/MainProcess] Error cleaning up after event loop: RecoverableConnectionError(None, 'Socket was disconnected', None, '')
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 102, in asynloop
+    hub.reset()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 116, in reset
+    self.close()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 275, in close
+    item()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/vine/promises.py", line 161, in __call__
+    return self.throw()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/vine/promises.py", line 158, in __call__
+    retval = fun(*final_args, **final_kwargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 228, in _read
+    raise RecoverableConnectionError('Socket was disconnected')
+amqp.exceptions.RecoverableConnectionError: Socket was disconnected
+[2024-10-26 12:28:14,733: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:28:14,733: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:28:14,734: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:28:14,734: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:28:14,734: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:28:14,735: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:28:14,739: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:28:14,740: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: Server unexpectedly closed connection.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:28:14,741: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:28:16,737: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:28:16,742: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:28:16,742: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:28:16,743: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:28:20,742: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 6.00 seconds... (3/100)
+
+[2024-10-26 12:28:20,746: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 6.00 seconds... (3/100)
+
+[2024-10-26 12:28:20,746: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 6.00 seconds... (3/100)
+
+[2024-10-26 12:28:20,747: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 6.00 seconds... (3/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:28:22
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7f9107bc99d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:28:22,556: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:28:22,558: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:28:24,560: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:28:26,750: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2024-10-26 12:28:26,754: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2024-10-26 12:28:26,754: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2024-10-26 12:28:26,754: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2024-10-26 12:28:28,565: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 6.00 seconds... (3/100)
+
+[2024-10-26 12:28:34,573: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 8.00 seconds... (4/100)
+
+[2024-10-26 12:28:34,758: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2024-10-26 12:28:34,761: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2024-10-26 12:28:34,761: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2024-10-26 12:28:34,763: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2024-10-26 12:28:42,583: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 10.00 seconds... (5/100)
+
+[2024-10-26 12:28:44,771: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2024-10-26 12:28:44,771: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2024-10-26 12:28:44,772: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2024-10-26 12:28:44,775: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2024-10-26 12:28:52,597: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 12.00 seconds... (6/100)
+
+[2024-10-26 12:28:56,786: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2024-10-26 12:28:56,787: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2024-10-26 12:28:56,787: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2024-10-26 12:28:56,792: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2024-10-26 12:29:04,613: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 14.00 seconds... (7/100)
+
+[2024-10-26 12:29:10,804: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+[2024-10-26 12:29:10,804: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+[2024-10-26 12:29:10,805: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+[2024-10-26 12:29:10,809: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+[2024-10-26 12:29:18,633: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 111] Connection refused.
+Trying again in 16.00 seconds... (8/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:29:26
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7fb9fd5349d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:29:26,576: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:26,597: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:29:26,823: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 18.00 seconds... (9/100)
+
+[2024-10-26 12:29:26,823: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 18.00 seconds... (9/100)
+
+[2024-10-26 12:29:26,824: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 18.00 seconds... (9/100)
+
+[2024-10-26 12:29:26,827: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 18.00 seconds... (9/100)
+
+[2024-10-26 12:29:28,601: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:29:32,615: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:29:32,616: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:32,618: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:29:33,632: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:29:33,648: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:29:34,658: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:29:34,659: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:34,661: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:29:35,676: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:29:35,684: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:29:35,687: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:29:44,868: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:29:44,868: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:44,870: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:29:44,870: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:44,873: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:29:44,874: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:29:44,874: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:44,874: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:29:44,880: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:29:44,881: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:29:44,885: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:29:44,886: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:29:45,941: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:29:45,945: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:29:45,954: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:29:45,955: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:03,791: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:03,791: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:03,792: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:03,793: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:03,793: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:03,794: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:03,795: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:03,795: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:03,795: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:03,796: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:03,796: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:03,796: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:03,797: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:03,797: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:03,797: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:03,798: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:03,798: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:03,799: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:03,799: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:03,800: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:03,803: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:03,804: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:03,804: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:03,804: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:05,802: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:05,802: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:05,808: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:05,809: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:05,809: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:05,810: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:30:05
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7f999cb409d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:30:06,062: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:06,074: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:08,077: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:09,817: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:09,818: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:09,818: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:09,819: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:09,830: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:09,830: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:09,834: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:09,834: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:09,835: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:09,835: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:09,836: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:09,836: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:09,846: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:09,848: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:09,848: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:09,849: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:09,851: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:09,851: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:10,911: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:10,914: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:10,915: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:10,917: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:10,918: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:10,918: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:12,085: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:12,085: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:12,089: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:13,105: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:13,112: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:30:13,114: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:30:25,586: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,587: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,588: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,589: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,589: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,589: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,589: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,590: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,590: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,591: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,591: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,591: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,591: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,592: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,592: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:25,593: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,593: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,593: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 248, in on_readable
+    reader(loop)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/transport/base.py", line 230, in _read
+    drain_events(timeout=0)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 526, in drain_events
+    while not self.blocking_read(timeout):
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/connection.py", line 531, in blocking_read
+    frame = self.transport.read_frame()
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 294, in read_frame
+    frame_header = read(7, True)
+  File "/home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/amqp/transport.py", line 637, in _read
+    raise OSError('Server unexpectedly closed connection')
+OSError: Server unexpectedly closed connection
+[2024-10-26 12:30:25,595: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,596: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:25,596: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,593: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2024-10-26 12:30:25,597: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:25,598: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:25,599: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: Server unexpectedly closed connection.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:25,599: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:25,599: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: Server unexpectedly closed connection.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:25,600: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: Server unexpectedly closed connection.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:27,602: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:27,604: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:27,606: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:27,606: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:27,606: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:27,607: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:27,609: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+ 
+ -------------- celery@debian v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.10.0-30-amd64-x86_64-with-glibc2.31 2024-10-26 12:30:27
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         backend:0x7f6dd94b79d0
+- ** ---------- .> transport:   amqp://guest:**@127.0.0.1:5672//
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 2 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . base.tasks.removeExpiredSecrets
+
+[2024-10-26 12:30:27,732: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:27,739: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 22] Invalid argument.
+Trying again in 2.00 seconds... (1/100)
+
+[2024-10-26 12:30:29,742: ERROR/MainProcess] consumer: Cannot connect to amqp://guest:**@127.0.0.1:5672//: [Errno 104] Connection reset by peer.
+Trying again in 4.00 seconds... (2/100)
+
+[2024-10-26 12:30:31,640: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,641: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,640: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,641: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,642: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,642: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,643: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,643: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,644: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,644: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,649: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,650: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,650: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:31,651: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:31,658: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:31,660: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:31,662: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:31,665: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:31,667: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:31,667: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:31,668: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:32,727: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:32,736: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:32,738: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:32,739: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:32,740: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:32,740: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:32,742: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:33,750: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2024-10-26 12:30:33,750: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-26 12:30:33,754: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-26 12:30:34,770: INFO/MainProcess] mingle: all alone
+[2024-10-26 12:30:34,780: WARNING/MainProcess] /home/user/ticketing/test_env/back_env/venv/lib/python3.9/site-packages/kombu/pidbox.py:72: UserWarning: A node named celery@debian is already using this process mailbox!
+
+Maybe you forgot to shutdown the other node or did not do so properly?
+Or if you meant to start multiple nodes on the same host please make sure
+you give each node a unique node name!
+
+  warnings.warn(W_PIDBOX_IN_USE.format(node=self))
+
+[2024-10-26 12:30:34,783: INFO/MainProcess] celery@debian ready.
+[2024-10-26 12:31:22,752: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[f85d02f6-6593-48f4-b6d9-3d8dc00dcdfb] received
+[2024-10-26 12:31:22,760: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[f85d02f6-6593-48f4-b6d9-3d8dc00dcdfb] succeeded in 0.007260185999939495s: None
+[2024-10-26 12:31:23,108: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[f904549c-da64-4d3c-a97e-44fa12dbb0d2] received
+[2024-10-26 12:31:23,114: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[f904549c-da64-4d3c-a97e-44fa12dbb0d2] succeeded in 0.005501113000036639s: None
+[2024-10-26 12:31:23,301: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[724c97f6-e99b-4ad0-86e7-b873b747e44a] received
+[2024-10-26 12:31:23,308: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[724c97f6-e99b-4ad0-86e7-b873b747e44a] succeeded in 0.005558199000006425s: None
+[2024-10-26 12:31:23,381: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[fa584939-af6f-4057-a0e0-d79eed30ccc2] received
+[2024-10-26 12:31:23,420: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[fa584939-af6f-4057-a0e0-d79eed30ccc2] succeeded in 0.032299623000085376s: None
+[2024-10-26 12:31:23,927: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[68d6ac94-4104-4765-89b8-d397517c34da] received
+[2024-10-26 12:31:23,942: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[68d6ac94-4104-4765-89b8-d397517c34da] succeeded in 0.012623027000017828s: None
+[2024-10-26 12:31:24,125: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[127d11a8-2b45-43fa-b85e-d35a228e572c] received
+[2024-10-26 12:31:24,149: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[855260fa-1238-4395-973a-97677985a7db] received
+[2024-10-26 12:31:24,159: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[855260fa-1238-4395-973a-97677985a7db] succeeded in 0.008994622000045638s: None
+[2024-10-26 12:31:24,176: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[127d11a8-2b45-43fa-b85e-d35a228e572c] succeeded in 0.04321155799993903s: None
+[2024-10-26 12:31:24,285: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[fb09acb4-ff41-434a-9d6c-b98fe3b1d63a] received
+[2024-10-26 12:31:24,291: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[fb09acb4-ff41-434a-9d6c-b98fe3b1d63a] succeeded in 0.005407347999948797s: None
+[2024-10-26 12:31:24,365: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[ac12f043-f2fa-48a9-a620-de971227926c] received
+[2024-10-26 12:31:24,366: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[ac12f043-f2fa-48a9-a620-de971227926c] succeeded in 0.0012467819999528729s: None
+[2024-10-26 12:31:24,928: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[4b9728a4-3bcf-48a2-ad70-d8f3611ecc52] received
+[2024-10-26 12:31:24,930: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[4b9728a4-3bcf-48a2-ad70-d8f3611ecc52] succeeded in 0.000999172999968323s: None
+[2024-10-26 12:31:25,089: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[11e64c21-1f01-43cb-9c11-44e0ab40a798] received
+[2024-10-26 12:31:25,092: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[11e64c21-1f01-43cb-9c11-44e0ab40a798] succeeded in 0.0027711520000366363s: None
+[2024-10-26 12:31:25,094: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[36944f30-592d-454a-8cb5-399ae57d74a0] received
+[2024-10-26 12:31:25,096: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[36944f30-592d-454a-8cb5-399ae57d74a0] succeeded in 0.0009309330000633054s: None
+[2024-10-26 12:31:25,130: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[fd4ff345-9e31-41de-a840-c0fb199cb579] received
+[2024-10-26 12:31:25,132: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[fd4ff345-9e31-41de-a840-c0fb199cb579] succeeded in 0.000954558000103134s: None
+[2024-10-26 12:31:25,365: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[e1484a7b-54cd-4e5d-8285-88a77d215712] received
+[2024-10-26 12:31:25,367: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[e1484a7b-54cd-4e5d-8285-88a77d215712] succeeded in 0.0011690219999991314s: None
+[2024-10-26 12:31:25,732: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[3d6cf653-a766-40a8-b2d2-f193caf42c86] received
+[2024-10-26 12:31:25,735: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[3d6cf653-a766-40a8-b2d2-f193caf42c86] succeeded in 0.002790545999914684s: None
+[2024-10-26 12:31:25,851: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[24515f26-94a8-4aec-92f2-1bd95a3ac44c] received
+[2024-10-26 12:31:25,854: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[24515f26-94a8-4aec-92f2-1bd95a3ac44c] succeeded in 0.002306180999994467s: None
+[2024-10-26 12:31:25,928: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[eba43c00-7ea2-48d5-9eb6-bea8004b1bf1] received
+[2024-10-26 12:31:25,930: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[eba43c00-7ea2-48d5-9eb6-bea8004b1bf1] succeeded in 0.001120167999943078s: None
+[2024-10-26 12:31:26,095: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[27e83c57-789f-4e36-9d6e-8d23277abd87] received
+[2024-10-26 12:31:26,098: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[27e83c57-789f-4e36-9d6e-8d23277abd87] succeeded in 0.002419642999939242s: None
+[2024-10-26 12:31:26,100: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[5df107ff-548b-427f-85cc-6c473c636e36] received
+[2024-10-26 12:31:26,101: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[5df107ff-548b-427f-85cc-6c473c636e36] succeeded in 0.0009333209999340397s: None
+[2024-10-26 12:31:26,109: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[97a2e6ee-cb3a-4f47-902c-d9a7afeed079] received
+[2024-10-26 12:31:26,110: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[97a2e6ee-cb3a-4f47-902c-d9a7afeed079] succeeded in 0.0009466679999832195s: None
+[2024-10-26 12:31:26,285: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[48a5ea71-af62-4e60-9571-7f835361d588] received
+[2024-10-26 12:31:26,287: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[48a5ea71-af62-4e60-9571-7f835361d588] succeeded in 0.0011873009999590067s: None
+[2024-10-26 12:31:26,663: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[ef3f8e00-a5c8-4bad-a5e4-a6b78d905dac] received
+[2024-10-26 12:31:26,666: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[ef3f8e00-a5c8-4bad-a5e4-a6b78d905dac] succeeded in 0.002775348000000122s: None
+[2024-10-26 12:31:26,733: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[6779d1e6-43b9-4e11-bff5-763562c7e1dc] received
+[2024-10-26 12:31:26,735: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[6779d1e6-43b9-4e11-bff5-763562c7e1dc] succeeded in 0.0014717919999611695s: None
+[2024-10-26 12:31:26,828: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[3de469b6-29b6-4ff8-bfbb-ec0c9861b00b] received
+[2024-10-26 12:31:26,829: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[3de469b6-29b6-4ff8-bfbb-ec0c9861b00b] succeeded in 0.0008948540000801586s: None
+[2024-10-26 12:31:26,929: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[db7bc2fc-d683-4cf5-a2c1-552e040af0d8] received
+[2024-10-26 12:31:26,930: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[db7bc2fc-d683-4cf5-a2c1-552e040af0d8] succeeded in 0.0009038869999358212s: None
+[2024-10-26 12:31:27,095: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[bd31aa84-b72f-437f-b756-b0aa8db019b6] received
+[2024-10-26 12:31:27,099: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[bd31aa84-b72f-437f-b756-b0aa8db019b6] succeeded in 0.003109426000037274s: None
+[2024-10-26 12:31:27,101: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[bf046689-7fe1-4850-942e-3bac3053417f] received
+[2024-10-26 12:31:27,102: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[bf046689-7fe1-4850-942e-3bac3053417f] succeeded in 0.0008958160000247517s: None
+[2024-10-26 12:31:27,109: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[5fc3b0cd-05f2-4d71-8c8f-a5c600ccdb13] received
+[2024-10-26 12:31:27,111: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[5fc3b0cd-05f2-4d71-8c8f-a5c600ccdb13] succeeded in 0.0011349829999289796s: None
+[2024-10-26 12:31:27,285: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[9526f3ce-2af5-4fc4-bd24-0f304433e322] received
+[2024-10-26 12:31:27,287: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[9526f3ce-2af5-4fc4-bd24-0f304433e322] succeeded in 0.0011066009999467497s: None
+[2024-10-26 12:31:27,646: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[54bc90ae-a9ad-4393-9ca7-f4f585bb656e] received
+[2024-10-26 12:31:27,648: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[54bc90ae-a9ad-4393-9ca7-f4f585bb656e] succeeded in 0.0011289499999520558s: None
+[2024-10-26 12:31:27,733: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[12353c73-815c-4322-98f8-d20274f43166] received
+[2024-10-26 12:31:27,736: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[12353c73-815c-4322-98f8-d20274f43166] succeeded in 0.0024640229999022267s: None
+[2024-10-26 12:31:27,825: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[cb97f831-7006-4b5a-b7c9-f80f7f04e08e] received
+[2024-10-26 12:31:27,826: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[cb97f831-7006-4b5a-b7c9-f80f7f04e08e] succeeded in 0.0011638380000249526s: None
+[2024-10-26 12:31:27,929: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[6b02375a-03a4-49f4-b3e9-b7f95a355b44] received
+[2024-10-26 12:31:27,931: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[6b02375a-03a4-49f4-b3e9-b7f95a355b44] succeeded in 0.0009420819999377272s: None
+[2024-10-26 12:31:28,096: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[adb73868-df7d-4ae4-958c-790cac150ed6] received
+[2024-10-26 12:31:28,097: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[adb73868-df7d-4ae4-958c-790cac150ed6] succeeded in 0.0009012420000544807s: None
+[2024-10-26 12:31:28,101: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[b580bfff-81bd-41be-a97e-528af67db0fc] received
+[2024-10-26 12:31:28,103: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[b580bfff-81bd-41be-a97e-528af67db0fc] succeeded in 0.001141495000069881s: None
+[2024-10-26 12:31:28,110: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[95814e6d-8e8f-414d-b105-0c17c62e7664] received
+[2024-10-26 12:31:28,113: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[95814e6d-8e8f-414d-b105-0c17c62e7664] succeeded in 0.0027382069999930536s: None
+[2024-10-26 12:31:28,286: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[d4bdd524-ce20-420a-897b-b6ad4eb92842] received
+[2024-10-26 12:31:28,288: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[d4bdd524-ce20-420a-897b-b6ad4eb92842] succeeded in 0.001166935000014746s: None
+[2024-10-26 12:31:28,647: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[4dfd1724-901c-4f4a-8478-a6560ecda893] received
+[2024-10-26 12:31:28,648: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[4dfd1724-901c-4f4a-8478-a6560ecda893] succeeded in 0.0011417079999773705s: None
+[2024-10-26 12:31:28,733: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[7b84b16a-85e8-4877-bf52-2cb238808e0e] received
+[2024-10-26 12:31:28,734: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[7b84b16a-85e8-4877-bf52-2cb238808e0e] succeeded in 0.000896893000003729s: None
+[2024-10-26 12:31:28,825: INFO/MainProcess] Task base.tasks.removeExpiredSecrets[95f5761b-958a-4d5c-b7fa-e8b95d2809bd] received
+[2024-10-26 12:31:28,827: INFO/ForkPoolWorker-2] Task base.tasks.removeExpiredSecrets[95f5761b-958a-4d5c-b7fa-e8b95d2809bd] succeeded in 0.0010996970000860529s: None

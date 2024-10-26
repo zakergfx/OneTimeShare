@@ -1,0 +1,164 @@
+Watching for file changes with StatReloader
+/home/user/SecureShare/test_env/back_env/source/backend/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 26, 2024 - 12:24:12
+Django version 4.2.16, using settings 'backend.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+/home/user/SecureShare/test_env/back_env/source/backend/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 26, 2024 - 12:24:56
+Django version 4.2.16, using settings 'backend.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+[26/Oct/2024 12:25:20] "POST /api/secrets/ HTTP/1.1" 201 98
+[26/Oct/2024 12:25:23] "GET /api/secrets/4Cko0tfVOw0XCD9IMs6f?step=1 HTTP/1.1" 200 81
+[26/Oct/2024 12:25:23] "GET /api/secrets/4Cko0tfVOw0XCD9IMs6f?step=2 HTTP/1.1" 200 98
+[26/Oct/2024 12:25:28] "GET /api/admin/django_celery_beat/periodictask/ HTTP/1.1" 200 16287
+[26/Oct/2024 12:25:28] "GET /api/static/admin/css/base.css HTTP/1.1" 200 21310
+[26/Oct/2024 12:25:28] "GET /api/static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[26/Oct/2024 12:25:28] "GET /api/static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[26/Oct/2024 12:25:28] "GET /api/static/admin/js/core.js HTTP/1.1" 200 5682
+[26/Oct/2024 12:25:28] "GET /api/static/admin/css/responsive.css HTTP/1.1" 200 18559
+[26/Oct/2024 12:25:28] "GET /api/static/admin/css/changelists.css HTTP/1.1" 200 6566
+[26/Oct/2024 12:25:28] "GET /api/static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[26/Oct/2024 12:25:28] "GET /api/static/admin/js/actions.js HTTP/1.1" 200 7872
+[26/Oct/2024 12:25:28] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:25:28] "GET /api/static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[26/Oct/2024 12:25:28] "GET /api/static/admin/js/urlify.js HTTP/1.1" 200 7887
+[26/Oct/2024 12:25:28] "GET /api/static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[26/Oct/2024 12:25:28] "GET /api/static/admin/img/search.svg HTTP/1.1" 200 458
+[26/Oct/2024 12:25:28] "GET /api/static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[26/Oct/2024 12:25:29] "GET /api/static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[26/Oct/2024 12:25:29] "GET /api/static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[26/Oct/2024 12:25:29] "GET /api/static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[26/Oct/2024 12:25:29] "GET /api/static/admin/js/theme.js HTTP/1.1" 200 1943
+[26/Oct/2024 12:25:29] "GET /api/static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[26/Oct/2024 12:25:29] "GET /api/static/admin/js/filters.js HTTP/1.1" 200 978
+[26/Oct/2024 12:25:29] "GET /api/static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[26/Oct/2024 12:25:29] "GET /api/static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[26/Oct/2024 12:25:29] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:25:29] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:25:30] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:25:30] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:25:31] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:25:31] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+[26/Oct/2024 12:31:09] "GET /api/admin/base/secret/add/ HTTP/1.1" 200 12142
+[26/Oct/2024 12:31:09] "GET /api/static/admin/css/base.css HTTP/1.1" 200 21310
+[26/Oct/2024 12:31:09] "GET /api/static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[26/Oct/2024 12:31:09] "GET /api/static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[26/Oct/2024 12:31:09] "GET /api/static/admin/css/forms.css HTTP/1.1" 200 9090
+[26/Oct/2024 12:31:09] "GET /api/static/admin/css/responsive.css HTTP/1.1" 200 18559
+[26/Oct/2024 12:31:09] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/core.js HTTP/1.1" 200 5682
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/actions.js HTTP/1.1" 200 7872
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/urlify.js HTTP/1.1" 200 7887
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[26/Oct/2024 12:31:09] "GET /api/static/admin/css/widgets.css HTTP/1.1" 200 11921
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/theme.js HTTP/1.1" 200 1943
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[26/Oct/2024 12:31:09] "GET /api/static/admin/js/change_form.js HTTP/1.1" 200 606
+[26/Oct/2024 12:31:09] "GET /api/static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[26/Oct/2024 12:31:13] "POST /api/admin/base/secret/add/ HTTP/1.1" 302 0
+[26/Oct/2024 12:31:13] "GET /api/admin/base/secret/ HTTP/1.1" 200 11692
+[26/Oct/2024 12:31:13] "GET /api/static/admin/css/base.css HTTP/1.1" 200 21310
+[26/Oct/2024 12:31:13] "GET /api/static/admin/css/changelists.css HTTP/1.1" 200 6566
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/actions.js HTTP/1.1" 200 7872
+[26/Oct/2024 12:31:13] "GET /api/static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[26/Oct/2024 12:31:13] "GET /api/static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/core.js HTTP/1.1" 200 5682
+[26/Oct/2024 12:31:13] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/urlify.js HTTP/1.1" 200 7887
+[26/Oct/2024 12:31:13] "GET /api/static/admin/css/responsive.css HTTP/1.1" 200 18559
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[26/Oct/2024 12:31:13] "GET /api/static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/theme.js HTTP/1.1" 200 1943
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[26/Oct/2024 12:31:13] "GET /api/static/admin/js/filters.js HTTP/1.1" 200 978
+[26/Oct/2024 12:31:13] "GET /api/static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[26/Oct/2024 12:31:13] "GET /api/static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[26/Oct/2024 12:31:14] "GET /api/admin/django_celery_beat/crontabschedule/ HTTP/1.1" 200 11108
+[26/Oct/2024 12:31:14] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:15] "GET /api/admin/django_celery_beat/intervalschedule/ HTTP/1.1" 200 10831
+[26/Oct/2024 12:31:15] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:16] "GET /api/admin/django_celery_beat/intervalschedule/1/change/ HTTP/1.1" 200 15823
+[26/Oct/2024 12:31:16] "GET /api/static/admin/css/forms.css HTTP/1.1" 200 9090
+[26/Oct/2024 12:31:16] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:16] "GET /api/static/admin/js/inlines.js HTTP/1.1" 200 15526
+[26/Oct/2024 12:31:16] "GET /api/static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+[26/Oct/2024 12:31:16] "GET /api/static/admin/css/widgets.css HTTP/1.1" 200 11921
+[26/Oct/2024 12:31:16] "GET /api/static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[26/Oct/2024 12:31:16] "GET /api/static/admin/js/change_form.js HTTP/1.1" 200 606
+[26/Oct/2024 12:31:16] "GET /api/static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[26/Oct/2024 12:31:22] "POST /api/admin/django_celery_beat/intervalschedule/1/change/ HTTP/1.1" 302 0
+[26/Oct/2024 12:31:22] "GET /api/admin/django_celery_beat/intervalschedule/ HTTP/1.1" 200 11067
+[26/Oct/2024 12:31:22] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:23] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:31:23] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:24] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:31:24] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:24] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:31:24] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:25] "GET /api/admin/django_celery_beat/intervalschedule/ HTTP/1.1" 200 10833
+[26/Oct/2024 12:31:25] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:26] "GET /api/admin/django_celery_beat/intervalschedule/1/change/ HTTP/1.1" 200 15831
+[26/Oct/2024 12:31:26] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:28] "POST /api/admin/django_celery_beat/intervalschedule/1/change/ HTTP/1.1" 302 0
+[26/Oct/2024 12:31:28] "GET /api/admin/django_celery_beat/intervalschedule/ HTTP/1.1" 200 11063
+[26/Oct/2024 12:31:28] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:33] "GET /api/admin/base/secret/ HTTP/1.1" 200 9569
+[26/Oct/2024 12:31:33] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:34] "GET /api/admin/base/secret/add/ HTTP/1.1" 200 12142
+[26/Oct/2024 12:31:34] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:37] "POST /api/admin/base/secret/add/ HTTP/1.1" 302 0
+[26/Oct/2024 12:31:37] "GET /api/admin/base/secret/ HTTP/1.1" 200 11692
+[26/Oct/2024 12:31:37] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:37] "GET /api/static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[26/Oct/2024 12:31:38] "GET /api/admin/base/secret/ HTTP/1.1" 200 11477
+[26/Oct/2024 12:31:38] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:31:39] "GET /api/admin/base/secret/ HTTP/1.1" 200 11477
+[26/Oct/2024 12:31:39] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:37:35] "GET /api/admin/base/secret/ HTTP/1.1" 200 11477
+[26/Oct/2024 12:37:35] "GET /api/static/admin/css/base.css HTTP/1.1" 200 21310
+[26/Oct/2024 12:37:35] "GET /api/static/admin/css/responsive.css HTTP/1.1" 200 18559
+[26/Oct/2024 12:37:35] "GET /api/static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[26/Oct/2024 12:37:35] "GET /api/static/admin/css/changelists.css HTTP/1.1" 200 6566
+[26/Oct/2024 12:37:35] "GET /api/static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[26/Oct/2024 12:37:35] "GET /api/admin/jsi18n/ HTTP/1.1" 200 3343
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/jquery.init.js HTTP/1.1" 200 347
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/actions.js HTTP/1.1" 200 7872
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/core.js HTTP/1.1" 200 5682
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/urlify.js HTTP/1.1" 200 7887
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+[26/Oct/2024 12:37:35] "GET /api/static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/theme.js HTTP/1.1" 200 1943
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[26/Oct/2024 12:37:35] "GET /api/static/admin/js/filters.js HTTP/1.1" 200 978
+[26/Oct/2024 12:37:35] "GET /api/static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[26/Oct/2024 12:37:35] "GET /api/static/admin/img/tooltag-add.svg HTTP/1.1" 200 331

@@ -1,8 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from . import serializers, models, tools
+from . import serializers, models, tools, tasks
 from django.shortcuts import get_object_or_404
 from .wrappers import *
+import time
 
 # gérer les secrets
 @api_view(["POST"])
@@ -53,11 +54,7 @@ def getSecretDetails(request, secretUri):
         return Response(status=204)
         
 
-@api_view(["GET"])
-def testing(request):
-    x = tools.generateTimeStamp(0)
-    print(x)
-    return Response({"time": x}, status=201)            
+        
 
 @api_view(["POST"])
 def sendMail(request):
@@ -74,3 +71,7 @@ def sendMail(request):
         return Response({"detail": "Not sent"}, status=404)
 
 
+@api_view(["GET"])
+def testing(request):
+    tasks.my_hourly_task()
+    return Response({"response": "ok"}, status=200)    

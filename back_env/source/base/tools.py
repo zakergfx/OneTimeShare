@@ -9,10 +9,10 @@ def generateRandomString(length):
 
 def generateTimeStamp(days):
     # On récupère le timestamp actuel
-    current_timestamp = int(time.time())
+    currentTimestamp = int(time.time())
     # Ajoute 3 jours (3 jours * 24 heures * 3600 secondes par heure)
     days_in_seconds = days * 24 * 60 * 60
-    return current_timestamp + days_in_seconds
+    return currentTimestamp + days_in_seconds
 
 def sendMail(to, subject, body):
     # Configuration de l'email

@@ -14,13 +14,13 @@ from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 
-import logging
+# import logging
 
-logging.basicConfig(level=logging.WARNING,
-                    format="%(asctime)s %(levelname)s %(message)s",
-                    datefmt="%Y-%m-%d %H:%M:%S",
-                    filename="error.log"
-                    )
+# logging.basicConfig(level=logging.WARNING,
+#                     format="%(asctime)s %(levelname)s %(message)s",
+#                     datefmt="%Y-%m-%d %H:%M:%S",
+#                     filename="error.log"
+#                     )
 
 
 load_dotenv()
@@ -47,6 +47,9 @@ DEBUG = True
 
 # Application definition
 
+CELERY_BROKER_URL = "pyamqp://127.0.0.1:5672"
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +61,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'drf_yasg',
+    'django_celery_beat'
 ]
 
 SWAGGER_SETTINGS = {
