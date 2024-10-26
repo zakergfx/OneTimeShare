@@ -96,8 +96,7 @@ function MainPage() {
                         <input value={url} disabled></input>
                         <FaRegCopy onClick={handleCopy} className="Icon" size="1.5em" />
                     </div>
-                    <p>Expires in {days} days</p>
-                    <p>{isOnce ? "Can be opened once" : "Can be open multiple times"}</p>
+                    <p>Expires in {days} day{days > 1 ? "s": null} and {isOnce ? "can be opened once" : "Can be open multiple times"}</p>
                     <button onClick={handleCopy} className="Main">Copy the link</button>
                     <h3>Content</h3>
                     <textarea disabled value={content}></textarea>

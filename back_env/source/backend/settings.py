@@ -14,13 +14,12 @@ from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
 
-# import logging
-
-# logging.basicConfig(level=logging.WARNING,
-#                     format="%(asctime)s %(levelname)s %(message)s",
-#                     datefmt="%Y-%m-%d %H:%M:%S",
-#                     filename="error.log"
-#                     )
+import logging
+logging.basicConfig(level=logging.WARNING,
+                    format="%(asctime)s %(levelname)s %(message)s",
+                    datefmt="%Y-%m-%d %H:%M:%S",
+                    filename="error.log"
+                    )
 
 
 load_dotenv()
@@ -47,7 +46,7 @@ DEBUG = True
 
 # Application definition
 
-CELERY_BROKER_URL = "pyamqp://127.0.0.1:5672"
+CELERY_BROKER_URL = "pyamqp://rabbitmq:5672"
 
 
 INSTALLED_APPS = [
