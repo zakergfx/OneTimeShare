@@ -6,4 +6,4 @@
 - You share it with who you want
 - He opens it and has access to your secret
 
-The secret will be automatically removed after being read (if once setting has been set), otherwise it will be removed when arrived at the expiration date.
+The secret will be automatically removed after being read (if once setting has been set), otherwise it will be removed when arrived at the expiration date..
