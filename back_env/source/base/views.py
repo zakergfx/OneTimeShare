@@ -2,8 +2,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from . import serializers, models, tools, tasks
 from django.shortcuts import get_object_or_404
-from .wrappers import *
-import time
 
 # gérer les secrets
 @api_view(["POST"])
