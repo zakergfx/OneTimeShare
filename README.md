@@ -1,6 +1,8 @@
 # OneTimeShare
 The role of this web application is to allow two users sharing secrets securely and easily, over internet.
 
+The app : https://onetimeshare.be
+
 ## The problem
 
 Employees often need to share secrets within a company. However if they do not have a access to a shared password manager solution it can be hard for them to share confidential information securely. This often leads to password, API key or other secrets being shared on Teams, through mail etc. This is a <b>security issue</b> since anyone accessing your Teams or mail account get to access these information.
