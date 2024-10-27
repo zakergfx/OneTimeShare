@@ -6,6 +6,10 @@ __pycache__/
 log
 **/*.log
 
+**/static
+**/migrations
+**/__init__.py
+
 # C extensions
 *.so
 
