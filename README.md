@@ -3,7 +3,7 @@ The role of this web application is to allow two users two share secrets securel
 
 ## The problem
 
-Employees often need to share secrets within a company. However if they do not have a access to a shared password manager solution it can be hard for them to share confidential information securely. This often leads to password, API key or other secrets being shared on Teams, through mail etc. This is a <b>security issue</b> since anyone accessing your Teams or mail account get to access these information.
+Employees often need to share secrets within a company. However if they do not have a access to a shared password manager solution. So it can be hard for them to share confidential information securely. This often leads to password, API key or other secrets being shared on Teams, through mail etc. This is a <b>security issue</b> since anyone accessing your Teams or mail account get to access these information.
 
 Same problem occurs when dealing with external companies when you need to share a secret with them, whether it is to share a password, an IPSEC key, an x509 certficate etc.
 
