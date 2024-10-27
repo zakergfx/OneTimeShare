@@ -7,7 +7,7 @@ function ErrorPage() {
         <div className="ErrorPage">
             <div className="Content">
                 <h1>404 Error: Page not found</h1>
-                <p>The requested page had not been found.</p>
+                <p>The requested page has not been found</p>
                 <p>Maybe that the secret URL is incorrect or this is an expired secret</p>
                 <button onClick={() => navigate("/")} className="Main">Come back home</button>
             </div >

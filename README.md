@@ -1,9 +1,9 @@
 # OneTimeShare
-The role of this web application is to allow two users two share secrets securely and easily, over internet.
+The role of this web application is to allow two users sharing secrets securely and easily, over internet.
 
 ## The problem
 
-Employees often need to share secrets within a company. However if they do not have a access to a shared password manager solution. So it can be hard for them to share confidential information securely. This often leads to password, API key or other secrets being shared on Teams, through mail etc. This is a <b>security issue</b> since anyone accessing your Teams or mail account get to access these information.
+Employees often need to share secrets within a company. However if they do not have a access to a shared password manager solution it can be hard for them to share confidential information securely. This often leads to password, API key or other secrets being shared on Teams, through mail etc. This is a <b>security issue</b> since anyone accessing your Teams or mail account get to access these information.
 
 Same problem occurs when dealing with external companies when you need to share a secret with them, whether it is to share a password, an IPSEC key, an x509 certficate etc.
 
@@ -30,11 +30,11 @@ One simple solution to this problem is <b>OneTimeShare</b>. It allows you to cre
 
 <img src="imagesMd/image-3.png" alt="Secret read" width="50%"><br/><br/>
 
-<b>Step 5:</b> The secret will be automatically removed after being read (if once setting has been set), otherwise it will be removed when arrived at the expiration date.
+<b>Step 5:</b> The secret will automatically be removed after being read (if once setting has been set), otherwise it will be removed when arrived at the expiration date.
    
 <img src="imagesMd/image-4.png" alt="Secret expired" width="50%">
 
-## Technologies
+## Technologies used
 <div style="display: flex;flex-direction: row; align-items: center">
 <img style="margin-right: 1em;" src="imagesMd/image-5.png" alt="React" width="10%">
 <img style="margin-right: 1em;" src="imagesMd/image-6.png" alt="Django" width="15%">
