@@ -67,7 +67,7 @@ function ReceiverPage() {
                     <h1>You just received a secret</h1>
                     <h3 >Click on the button below the reveal it</h3>
                     <button onClick={handleClick} id="big" className="Main">Reveal the secret</button>
-                    <p>{isOnce ? `Be careful ! The secret can be retrieved once and will expire in ${days} hours` : `The secret will expire in ${days} hours`}</p>
+                    <p>{isOnce ? `Be careful ! The secret can be retrieved once and will expire in ${days} hours.` : `The secret will expire in ${days} hours.`}</p>
                 </div > : isOnce !== undefined &&
                 <div className="Content">
                     <h1>Here is your secret message</h1>
@@ -76,7 +76,7 @@ function ReceiverPage() {
                         <textarea disabled value={content}></textarea>
                         <FaRegCopy onClick={handleCopy} size="1.5em" className="Icon" />
                     </div>
-                    <p>{isOnce ? `Be careful ! The secret can be retrieved once and will expire in ${days} hours` : `The secret will expire in ${days} hours`}</p>
+                    <p>{isOnce ? `Be careful ! The secret link is now expired. The page can't be reloaded.` : `The secret will expire in ${days} hours.`}</p>
                     <button onClick={handleCopy} className="Main">Copy the content</button>
                     <button onClick={() => window.location.replace("/")} className="Second">Create a secret</button>
                 </div >

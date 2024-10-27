@@ -19,11 +19,9 @@ One simple solution to this problem is <b>OneTimeShare</b>. It allows you to cre
 
 <img src="imagesMd/image.png" alt="Secret creation" width="50%"><br/><br/>
 
-
 <b>Step 2:</b> You share it with who you want
 
 <img src="imagesMd/image-1.png" alt="Secret sharing" width="50%"><br/><br/>
-
 <b>Step 3:</b> The other user opens it
 
 <img src="imagesMd/image-2.png" alt="Secret opened" width="50%"><br/><br/>
@@ -31,6 +29,7 @@ One simple solution to this problem is <b>OneTimeShare</b>. It allows you to cre
 <b>Step 4:</b> He has access to the secret
 
 <img src="imagesMd/image-3.png" alt="Secret read" width="50%"><br/><br/>
+
 
 <b>Step 5:</b> The secret will automatically be removed after being read (if once setting has been set), otherwise it will be removed when arrived at the expiration date.
    
