@@ -2,17 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://kanban.loicktest.be/</loc>
-        <lastmod>2024-12-10</lastmod>
+        <loc>https://onetimeshare.be/</loc>
+        <lastmod>2024-10-26</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
-    </url>
-
-    <url>
-        <loc>https://kanban.loicktest.be/contact</loc>
-        <lastmod>2024-12-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.5</priority>
     </url>
 
 </urlset>
