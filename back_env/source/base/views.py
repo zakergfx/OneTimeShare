@@ -36,7 +36,7 @@ def getSecretDetails(request, secretUri):
         elif step == "2":
             data = get_object_or_404(models.Secret, uri=secretUri)
             jsonData = serializers.SecretSerializer(data).data
-
+            jsonData["content"] = data.getContent()
             if jsonData["isonce"]:
                 data.delete()
 
@@ -71,5 +71,7 @@ def sendMail(request):
 
 @api_view(["GET"])
 def testing(request):
-    tasks.my_hourly_task()
-    return Response({"response": "ok"}, status=200)    
+    
+    data = models.Secret.objects.all()[0]
+    data = data.get_content()
+    return Response({"response": data}, status=200)    
