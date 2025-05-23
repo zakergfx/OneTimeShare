@@ -1,7 +1,7 @@
 # OneTimeShare
 The role of this web application is to allow two users sharing secrets securely and easily, over internet.
 
-The app : https://onetimeshare.be
+The app : https://onetimeshare.be (now down)
 
 ## The problem
 
