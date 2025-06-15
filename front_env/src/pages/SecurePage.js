@@ -1,8 +1,12 @@
 import "../styles/secure.scss"
+import { Helmet } from 'react-helmet-async';
 
 function SecurePage() {
     return (
         <div className="SecurePage">
+            <Helmet >
+                <meta name="robots" content="noindex" />
+            </Helmet>
             <div className="Content">
                 <h1>How it it secure ?</h1>
                 <ul>
